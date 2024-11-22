@@ -1,9 +1,16 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-cred') // Replace 'dockerhub' with your Jenkins credentials ID for Docker Hub
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-cred') // Replace with your credentials ID
     }
     stages {
+        stage('Checkout Code') {
+            steps {
+                echo 'Checking out code...'
+                checkout scm
+            }
+        }
+
         stage('Clean Workspace') {
             steps {
                 echo 'Cleaning workspace...'
