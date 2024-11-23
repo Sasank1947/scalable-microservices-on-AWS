@@ -64,7 +64,7 @@ public class SurveyController {
         Survey survey = service.getSurveyById(id);
         if(survey!=null){
             service.deleteSurvey(id);
-            return new ResponseEntity<>("Deleted",HttpStatus.OK);
+            return new ResponseEntity<>("User Deleted",HttpStatus.OK);
         }
         else {
             return new ResponseEntity<>("Survey not found",HttpStatus.NOT_FOUND);
