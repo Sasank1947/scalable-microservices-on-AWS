@@ -3,7 +3,8 @@ pipeline {
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-cred') // Replace with your Docker Hub credentials ID
     }
-    stage('Verify Workspace') {
+    stages {
+        stage('Verify Workspace') {
             steps {
                 echo 'Verifying workspace contents...'
                 sh 'ls -al' // List all files in the root directory to confirm `pom.xml` exists
