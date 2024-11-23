@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
-
+//defining the model to be created in the AWS RDS database
 @Entity
 @Data
 @AllArgsConstructor

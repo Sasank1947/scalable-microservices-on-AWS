@@ -17,11 +17,13 @@ public class SurveyController {
     @Autowired
     private surveyService service;
 
+    //getting all survey form data from database
     @GetMapping("/surveys")
     public ResponseEntity<List<Survey>> getAllSurveys(){
         return new ResponseEntity<>(service.getAllSurveys(), HttpStatus.OK);
     }
 
+    //getting particular survey data form
     @GetMapping("/surveys/{id}")
     public ResponseEntity<Survey> getSurveyById(@PathVariable int id){
         Survey survey = service.getSurveyById(id);
@@ -33,6 +35,7 @@ public class SurveyController {
         }
     }
 
+    //creating new survey data
     @PostMapping("/surveys")
     public ResponseEntity<?> addSurvey(@RequestBody Survey survey){
         try {
@@ -43,6 +46,7 @@ public class SurveyController {
         }
     }
 
+    //updating the survey data
     @PutMapping("/surveys/{id}")
     public ResponseEntity<String> updateSurvey(@PathVariable int id,@RequestBody Survey survey){
         Survey survey1 = null;
@@ -59,6 +63,7 @@ public class SurveyController {
         }
     }
 
+    //deleting the survey data
     @DeleteMapping("/surveys/{id}")
     public ResponseEntity<String> deleteSurvey(@PathVariable int id){
         Survey survey = service.getSurveyById(id);

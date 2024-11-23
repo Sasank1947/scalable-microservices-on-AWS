@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-cred') // Replace with your Docker Hub credentials ID
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-cred')
     }
     stages {
         stage('Verify Workspace') {
