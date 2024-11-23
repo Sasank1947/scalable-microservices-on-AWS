@@ -1,27 +1,19 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-cred') // Replace with your credentials ID
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-cred') // Replace with your Docker Hub credentials ID
     }
-    stages {
-        stage('Checkout Code') {
+    stage('Verify Workspace') {
             steps {
-                echo 'Checking out code...'
-                checkout scm
-            }
-        }
-
-        stage('Clean Workspace') {
-            steps {
-                echo 'Cleaning workspace...'
-                deleteDir() // Ensure the workspace is clean
+                echo 'Verifying workspace contents...'
+                sh 'ls -al' // List all files in the root directory to confirm `pom.xml` exists
             }
         }
 
         stage('Build JAR') {
             steps {
                 echo 'Building the JAR file...'
-                sh 'mvn clean package -DskipTests'
+                sh 'mvn clean package -DskipTests' // Run Maven command in the root directory
             }
         }
 
@@ -54,8 +46,14 @@ pipeline {
             steps {
                 echo 'Deploying to Kubernetes...'
                 sh '''
-                    kubectl set image deployment/assignment3-backend-deployment container-0=sasank1947/spring-backend:latest -n default
-                    kubectl rollout restart deployment/assignment3-backend-deployment -n default
+                    # Update the container image in the Kubernetes deployment
+                    kubectl set image deployment/swe645hw3-dep container-0=sasank1947/spring-backend:latest -n default
+
+                    # Restart the deployment to ensure new pods are created with the updated image
+                    kubectl rollout restart deployment/swe645hw3-dep -n default
+
+                    # Verify the rollout status to confirm the deployment was successful
+                    kubectl rollout status deployment/swe645hw3-dep -n default
                 '''
             }
         }
