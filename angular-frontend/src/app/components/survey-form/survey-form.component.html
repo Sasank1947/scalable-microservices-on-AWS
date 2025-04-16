@@ -1,0 +1,81 @@
+<div class="form-wrapper">
+    <form (ngSubmit)="onSubmit()">
+        <h2>Student Survey</h2>
+
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="first_name" [(ngModel)]="survey.first_name" required />
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="last_name" [(ngModel)]="survey.last_name" required />
+        </div>
+
+        <div class="form-group">
+            <label for="streetAddr">Street Address:</label>
+            <input type="text" id="streetAddr" name="street_addr" [(ngModel)]="survey.street_addr" />
+        </div>
+
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" [(ngModel)]="survey.city" />
+        </div>
+
+        <div class="form-group">
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" [(ngModel)]="survey.state" />
+        </div>
+
+        <div class="form-group">
+            <label for="zip">ZIP Code:</label>
+            <input type="text" id="zip" name="zip" [(ngModel)]="survey.zip" />
+        </div>
+
+        <div class="form-group">
+            <label for="telephoneNumber">Telephone:</label>
+            <input type="text" id="telephoneNumber" name="telephone_number" [(ngModel)]="survey.telephone_number" />
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" [(ngModel)]="survey.email" required />
+        </div>
+
+        <div class="form-group">
+            <label for="surveyDate">Date of Survey:</label>
+            <input type="date" id="surveyDate" name="survey_date" [(ngModel)]="survey.survey_date" />
+        </div>
+
+        <div class="checkbox-group">
+            <label>What did you like most?</label>
+            <label *ngFor="let option of likesOptions">
+                <input type="checkbox" [value]="option" (change)="survey.likes.push(option)" />
+                {{ option }}
+            </label>
+        </div>
+
+        <div class="radio-group">
+            <label>How did you hear about us?</label>
+            <label *ngFor="let option of hearAboutUsOptions">
+                <input type="radio" [value]="option" [(ngModel)]="survey.hearAboutUs" name="hearAboutUs" />
+                {{ option }}
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label for="likelihood">Likelihood of Recommendation:</label>
+            <select id="likelihood" [(ngModel)]="survey.likelihood" name="likelihood" required>
+                <option *ngFor="let option of likelihoodOptions" [value]="option">{{ option }}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="comments">Additional Comments:</label>
+            <textarea id="comments" name="comments" [(ngModel)]="survey.comments"></textarea>
+        </div>
+
+        <button type="submit">Submit</button>
+        <button type="button" (click)="onCancel()">Cancel</button>
+    </form>
+</div>

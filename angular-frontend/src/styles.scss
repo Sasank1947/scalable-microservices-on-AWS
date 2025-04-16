@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #121212; /* Dark background for the entire page */
+    color: #f8f9fa; /* Light text color for all pages */
+    font-family: 'Arial', sans-serif; /* Global font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    line-height: 1.6; /* Improve readability */
+}

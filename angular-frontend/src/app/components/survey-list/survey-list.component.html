@@ -1,0 +1,46 @@
+<div class="survey-list">
+    <h2>All Surveys</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Street Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>ZIP</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Date of Survey</th>
+                <th>Likes</th>
+                <th>Hear About Us</th>
+                <th>Likelihood</th>
+                <th>Comments</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let survey of surveys; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ survey.first_name }}</td>
+                <td>{{ survey.last_name }}</td>
+                <td>{{ survey.street_addr }}</td>
+                <td>{{ survey.city }}</td>
+                <td>{{ survey.state }}</td>
+                <td>{{ survey.zip }}</td>
+                <td>{{ survey.telephone_number }}</td>
+                <td>{{ survey.email }}</td>
+                <td>{{ survey.survey_date }}</td>
+                <td>{{ survey.likes.join(', ') }}</td>
+                <td>{{ survey.hearAboutUs }}</td>
+                <td>{{ survey.likelihood }}</td>
+                <td>{{ survey.comments }}</td>
+                <td class="actions">
+                    <button class="update" (click)="updateSurvey(survey.id!)">Update</button>
+                    <button class="delete" (click)="deleteSurvey(survey.id!)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
