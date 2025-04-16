@@ -154,8 +154,26 @@ ng build --configuration=production
 
 ## 📸 Screenshots
 
-Add screenshots of:
-- Survey form UI
-- Survey list with update/delete options
-- Jenkins pipeline status
-- Rancher dashboard
+### Survey Home Page
+
+![image](https://github.com/user-attachments/assets/67953993-22e2-4ef4-8bca-caa154f64dfb)
+
+### Survey Form
+
+![image](https://github.com/user-attachments/assets/cb1b3aa2-d92f-444c-9ff1-b138a344ed57)
+
+### View Surveys
+
+![image](https://github.com/user-attachments/assets/9b0e3362-f7c2-494c-9610-cf8a22ef81c6)
+
+### Postman Testing
+
+![image](https://github.com/user-attachments/assets/f8b0b84b-8a4a-4bb6-a078-6cd09d9d508d)
+
+### Rancher Setup
+
+![image](https://github.com/user-attachments/assets/cc07ca4e-81a5-41c3-b140-d2491373ab1b)
+
+### Jenkins CI/CD Pipeline
+
+![image](https://github.com/user-attachments/assets/f206683b-7f6c-4f45-b447-e8d8ffa0351f)
